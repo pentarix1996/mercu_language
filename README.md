@@ -1,5 +1,7 @@
 # Lenguaje de Programación Mercu
 
+Se ha creado un Podscast con la tecnología de "https://notebooklm.google.com/" **MercuPodcast.mp4** que explica el contenido de este repositorio
+
 Mercu es un lenguaje de programación interpretado y personalizado, diseñado como prueba de concepto en la creación de un lenguaje de programación. Este documento proporciona una guía completa sobre cómo utilizar Mercu, incluyendo explicaciones detalladas y ejemplos prácticos.
 
 ## Tabla de Contenidos
