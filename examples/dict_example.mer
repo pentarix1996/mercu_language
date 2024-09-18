@@ -1,0 +1,4 @@
+usuario = { "nombre": "Ana", "edad": 28 }
+
+print("Nombre del usuario: ", usuario["nombre"])
+print("Edad del usuario: ", usuario["edad"])

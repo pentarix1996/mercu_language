@@ -1,0 +1,9 @@
+connect_db("mi_base_de_datos.db")
+
+db_create_table("users", {"id": "INTEGER PRIMARY KEY AUTOINCREMENT", "name": "TEXT", "age": "INTEGER"})
+
+usuario1 = {"name": "Juan", "age": 30}
+usuario2 = {"name": "Pedro", "age": 25}
+db_insert("users", usuario1)
+db_insert("users", usuario2)
+db_query("users")

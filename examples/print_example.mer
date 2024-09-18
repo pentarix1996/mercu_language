@@ -1,0 +1,14 @@
+a = 10 + 4
+x = 42
+b = x * 10
+print(x, " * 10 = ", b)
+
+c = "Hola mundo"
+print(c)
+
+print("Hey, 42")
+
+my_bool = True
+
+my_dict = {"number_test": 73, "str_test": "Lorem ipsum"}
+print(my_dict)

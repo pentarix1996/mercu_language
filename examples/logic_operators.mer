@@ -1,0 +1,20 @@
+active = True
+inactive = False
+
+print("Variable 'active': ", active)
+print("Variable 'inactive': ", inactive)
+
+result = active AND inactive
+print("True AND False = ", result)
+
+result = active AND inactive
+print("True AND True = ", result)
+
+result = active OR inactive
+print("True OR False = ", result)
+
+result = NOT active
+print("NOT active = ", result)
+
+result = NOT inactive
+print("NOT inactive = ", result)

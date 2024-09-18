@@ -1,0 +1,14 @@
+temperature = 30
+
+if temperature > 25:
+{
+    print("Hace calor.")
+}
+elif temperature < 15:
+{
+    print("Hace frío.")
+}
+else:
+{
+    print("El clima es templado.")
+}
