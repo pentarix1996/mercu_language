@@ -19,6 +19,8 @@ CHAR_TOKENS_SWITCHER = {
     ',': (COMMA, ','),
     '{': (LBRACE, '{'),
     '}': (RBRACE, '}'),
+    '[': (LBRACKET, '['),
+    ']': (RBRACKET, ']'),
     ':': (COLON, ':'),
 }
 
@@ -58,13 +60,13 @@ class Lexer:
 
     def skip_whitespace(self) -> None:
         """Salta los espacios en blanco."""
-        while self.current_char is not None and self.current_char.isspace():
+        while self.current_char and self.current_char.isspace():
             self.advance()
 
     def number(self) -> tuple:
         """Devuelve un token de tipo NUMBER."""
         result = ''
-        while self.current_char is not None and self.current_char.isdigit():
+        while self.current_char and self.current_char.isdigit():
             result += self.current_char
             self.advance()
         return (NUMBER, int(result))
@@ -72,7 +74,7 @@ class Lexer:
     def boolean(self) -> tuple:
         """Devuelve un token de tipo BOOLEAN."""
         result = ''
-        while self.current_char is not None and isinstance(self.current_char, bool):
+        while self.current_char and isinstance(self.current_char, bool):
             result += self.current_char
             self.advance()
         return (BOOLEAN, bool(result))
@@ -80,24 +82,26 @@ class Lexer:
     def identifier(self) -> tuple:
         """Devuelve un token de tipo IDENTIFIER o palabra clave."""
         result = ''
-        while self.current_char is not None and (
+        while self.current_char and (
             self.current_char.isalnum() or self.current_char == '_'
         ):
             result += self.current_char
             self.advance()
+    
         result_lower = result.lower()
         token_type = IDENTIFIER_SWITCHER.get(result_lower, IDENTIFIER)
+
         if token_type != IDENTIFIER:
             return (token_type, result)
-        else:
-            return (IDENTIFIER, result)
+
+        return (IDENTIFIER, result)
 
     def string(self) -> tuple:
         """Devuelve un token de tipo STRING."""
         quote_char = self.current_char
         result = ''
         self.advance()  # Saltar la comilla inicial
-        while self.current_char is not None and self.current_char != quote_char:
+        while self.current_char and self.current_char != quote_char:
             if self.current_char == '\\':
                 self.advance()
                 if self.current_char in ['"', "'", '\\']:
@@ -112,7 +116,7 @@ class Lexer:
 
     def get_next_token(self) -> tuple:
         """Analiza y devuelve el siguiente token."""
-        while self.current_char is not None:
+        while self.current_char:
             if self.current_char.isspace():
                 self.skip_whitespace()
                 continue
@@ -150,14 +154,6 @@ class Lexer:
                     self.advance()
                     return (GREATER_EQUAL, '>=')
                 return (GREATER_THAN, '>')
-
-            if self.current_char == '[':
-                self.advance()
-                return (LBRACKET, '[')
-
-            if self.current_char == ']':
-                self.advance()
-                return (RBRACKET, ']')
 
             if token:
                 self.advance()

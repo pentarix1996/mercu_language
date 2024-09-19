@@ -169,8 +169,8 @@ class Parser:
             self.eat(RPAREN)
             node = FuncCall(name=token[1], args=args)
             return node
-        else:
-            return Var(name=token[1])
+
+        return Var(name=token[1])
 
     def statement(self) -> Any:
         """Analiza una sentencia, que puede ser una asignación, una estructura condicional o una expresión."""
@@ -187,8 +187,7 @@ class Parser:
                 self.eat(ASSIGN)
                 right = self.assignment()
                 return Assign(left=node, right=right)
-            else:
-                self.error('Asignación inválida')
+            self.error('Asignación inválida')
         return node
 
     def if_statement(self) -> Any:
@@ -226,7 +225,7 @@ class Parser:
         return statements
 
     def parse(self) -> list[Any]:
-        """Analiza todo el código y devuelve una lista de nodos."""
+        """Analiza todos los tokens y devuelve una lista de nodos."""
         statements = []
         while self.current_token[0] != EOF:
             node = self.statement()
