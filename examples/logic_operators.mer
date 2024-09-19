@@ -7,7 +7,7 @@ print("Variable 'inactive': ", inactive)
 result = active AND inactive
 print("True AND False = ", result)
 
-result = active AND inactive
+result = active AND active
 print("True AND True = ", result)
 
 result = active OR inactive
