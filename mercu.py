@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import sys
 from lexer import Lexer
 from parser import Parser
