@@ -147,7 +147,7 @@ Las estructuras condicionales permiten ejecutar código basándose en condicione
 
 ### Funciones Nativas
 
-Mercu incluye alguinas funciones incorporadas de forma nativa.
+Mercu incluye algunas funciones incorporadas de forma nativa.
 
 #### `print()`
 
